@@ -3,12 +3,12 @@ Comenzamos con el respectivo reconocimiento usando `nmap`.
 ``` bash
 nmap -p- -sS -sCV --min-rate 5000 -n -Pn 192.168.0.104 -oG scan
 ```
-![](Screenshot%20from%202023-12-13%2005-05-06.png)
+![](_anexos_/Screenshot%20from%202023-12-13%2005-05-06.png)
 - La versión de ssh en la 9.2p1, bastante actualizada, no hay mucho que hacer por ahi
 - Tenemos el puerto 80 disponible, pero en realidad solo hay una pagina manual de apache
 - En el puerto 5000 podemos ver lo que parece una app de nodejs, verificamos en el navegador
 
-![](Screenshot%20from%202023-12-13%2005-08-22.png)
+![](_anexos_/Screenshot%20from%202023-12-13%2005-08-22.png)
 Si ingresamos cualquier texto en el campo de `name` nos devuelve una url con el siguiente formato (e.j. con el usuario pepe)
 ``` html
 http://192.168.0.104:5000/?name=pepe&token=55569675
@@ -16,7 +16,7 @@ http://192.168.0.104:5000/?name=pepe&token=55569675
 - Si modificamos el token en la url con más numeros, la pagina aún carga con 'normalidad'
 - Si modificamos agregando un string nos salta un error relacionado con javascript
 
-![](Screenshot%20from%202023-12-13%2005-20-13.png)
+![](_anexos_/Screenshot%20from%202023-12-13%2005-20-13.png)
 
 Acá podemos deducir:
 - Un usuario `aleister`
@@ -78,11 +78,11 @@ Ver: [Linux Full TTY (Interective shell)](Linux%20Full%20TTY%20(Interective%20sh
 ### Reconocimiento de la maquina victima
 Si ejecutamos `sudo -l` podemos ver que tenemos la app ubicada en `/usr/bin/links` que podemos ejecutar como `root` sin necesidad de presentar una contraseña. Probamos, en realidad no parece salir nada, pero si presionamos `Esc` podemos ver un panel de opciones.
 
-![](Screenshot%20from%202023-12-14%2000-54-27.png)
+![](_anexos_/Screenshot%20from%202023-12-14%2000-54-27.png)
 ### Ascenso a root
 Si buscamos las opciones entre los paneles, podemos ver que en el apartado _File_ existe una opción llamada _OS shell_.
 
-![](Screenshot%20from%202023-12-14%2000-57-01.png)
+![](_anexos_/Screenshot%20from%202023-12-14%2000-57-01.png)
 Si ejecutamos esa opción como tal, nos devolvera una shell como el usuario root. Eso es todo.
 ##### OPCIONAL: Posibilidad de ascender a root a través de una reverse shell desde una pagina en el navegador (?)
 La idea de este punto es poder ejecutar alguna pequeña pagina en la cual le puedas inyectar codigo que se ejecute como `client-side` (nosotros desde el navegador somos el cliente) que probablemente se termine ejecutando como root. Solo es una idea igual y no se si es posible, si bien investigando encontre que hay muchos problemas a la hora de ejecutar comandos en el lado del cliente (lo cual tiene sentido por razones de seguridad).
