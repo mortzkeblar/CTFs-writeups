@@ -16,6 +16,7 @@ Si accedemos al `modo inspeccionar` y filtramos por `php` o `?`. Podemos ver que
 
 ## Local File Inclusion (LFI)
 Si cambiamos `Doctors.html` por `/etc/passwd` podemos ver que nos lista el fichero. 
+
 ![](_anexos_/Screenshot%20from%202023-12-23%2021-50-04.png)
 - Tenemos tres usuarios al parecer
 	- root
@@ -23,7 +24,9 @@ Si cambiamos `Doctors.html` por `/etc/passwd` podemos ver que nos lista el fiche
 	- www-data
 
 Buscamos el `id_rsa` del usuario `admin`
+
 ![](_anexos_/Screenshot%20from%202023-12-23%2021-51-56.png)
+
 Usamos [ssh2john](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py)para convertir el `id_rsa` en un hash que podemos intentar crackear con [john](https://github.com/openwall/john).
 ``` bash
 ./ssh2john.ph id_rsa > id_rsa.txt
@@ -31,7 +34,9 @@ Usamos [ssh2john](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2j
 # ejecutamos john
 john id_rsa.txt --wordlist=/usr/share/dict/rockyou.txt
 ```
+
 ![](_anexos_/Screenshot%20from%202023-12-23%2023-57-33.png)
+
 Nos conectamos por ssh con el usuario `admin`, haciendo uso del `id_rsa` y la contraseña `unicorn`.
 ``` bash
 ssh -i id_rsa admin@192.168.0.108
@@ -70,5 +75,7 @@ Ingresamos como root a traves del usuario `hacker` con su contraseña `hacker`
 ``` bash
 su hacker
 ```
+
 ![](_anexos_/Screenshot%20from%202023-12-24%2001-43-10.png)
+
 Eso es todo.
