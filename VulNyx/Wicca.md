@@ -3,12 +3,12 @@ Comenzamos con el respectivo reconocimiento usando `nmap`.
 ``` bash
 nmap -p- -sS -sCV --min-rate 5000 -n -Pn 192.168.0.104 -oG scan
 ```
-![[Screenshot from 2023-12-13 05-05-06.png]]
+![](Screenshot%20from%202023-12-13%2005-05-06.png)
 - La versión de ssh en la 9.2p1, bastante actualizada, no hay mucho que hacer por ahi
 - Tenemos el puerto 80 disponible, pero en realidad solo hay una pagina manual de apache
 - En el puerto 5000 podemos ver lo que parece una app de nodejs, verificamos en el navegador
 
-![[Screenshot from 2023-12-13 05-08-22.png]]
+![](Screenshot%20from%202023-12-13%2005-08-22.png)
 Si ingresamos cualquier texto en el campo de `name` nos devuelve una url con el siguiente formato (e.j. con el usuario pepe)
 ``` html
 http://192.168.0.104:5000/?name=pepe&token=55569675
@@ -16,7 +16,7 @@ http://192.168.0.104:5000/?name=pepe&token=55569675
 - Si modificamos el token en la url con más numeros, la pagina aún carga con 'normalidad'
 - Si modificamos agregando un string nos salta un error relacionado con javascript
 
-![[Screenshot from 2023-12-13 05-20-13.png]]
+![](Screenshot%20from%202023-12-13%2005-20-13.png)
 
 Acá podemos deducir:
 - Un usuario `aleister`
@@ -57,7 +57,7 @@ Comprobado esto, procedemos a mandar una reverse shell para que nos pueda otorga
 
 ##### LECTURA OPCIONAL: POSIX y los problemas con la sintaxis stderr/stdout estandar
 
-Ver: [[POSIX y los problemas con stdout - stdeer]]
+Ver: [POSIX y los problemas con stdout - stdeer](POSIX%20y%20los%20problemas%20con%20stdout%20-%20stdeer.md)
 
 #### Reverse shell con netcat
 Entonces como tenemos ese problema con sh, podemos buscar otras formas de hacer la `reverse shell`, por ejemplo con `ncat`.
@@ -74,15 +74,15 @@ Ejecutamos y... Bingo!
 ### Tratamiento de la tty
 Lo primero que vamos a resolver es la cuestión de la tty. Ejecutamos los siguientes comandos en el ncat que estaba en escucha por el 4444.
 
-Ver: [[Linux Full TTY (Interective shell)]]
+Ver: [Linux Full TTY (Interective shell)](Linux%20Full%20TTY%20(Interective%20shell).md)
 ### Reconocimiento de la maquina victima
 Si ejecutamos `sudo -l` podemos ver que tenemos la app ubicada en `/usr/bin/links` que podemos ejecutar como `root` sin necesidad de presentar una contraseña. Probamos, en realidad no parece salir nada, pero si presionamos `Esc` podemos ver un panel de opciones.
 
-![[Screenshot from 2023-12-14 00-54-27.png]]
+![](Screenshot%20from%202023-12-14%2000-54-27.png)
 ### Ascenso a root
 Si buscamos las opciones entre los paneles, podemos ver que en el apartado _File_ existe una opción llamada _OS shell_.
 
-![[Screenshot from 2023-12-14 00-57-01.png]]
+![](Screenshot%20from%202023-12-14%2000-57-01.png)
 Si ejecutamos esa opción como tal, nos devolvera una shell como el usuario root. Eso es todo.
 ##### OPCIONAL: Posibilidad de ascender a root a través de una reverse shell desde una pagina en el navegador (?)
 La idea de este punto es poder ejecutar alguna pequeña pagina en la cual le puedas inyectar codigo que se ejecute como `client-side` (nosotros desde el navegador somos el cliente) que probablemente se termine ejecutando como root. Solo es una idea igual y no se si es posible, si bien investigando encontre que hay muchos problemas a la hora de ejecutar comandos en el lado del cliente (lo cual tiene sentido por razones de seguridad).
