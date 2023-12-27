@@ -78,4 +78,8 @@ su hacker
 
 ![](_anexos_/Screenshot%20from%202023-12-24%2001-43-10.png)
 
-Eso es todo.
+### Resources
+- https://reddyyz.medium.com/cracking-ssh-rsa-private-keys-ead3c126df6b
+- https://github.com/openwall/john
+- https://steflan-security.com/linux-tty-shell-cheat-sheet/
+- https://robertholdsworthsecurity.medium.com/how-to-crack-an-ssh-private-key-passphrase-ab7dd1583178

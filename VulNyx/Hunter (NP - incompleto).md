@@ -5,7 +5,7 @@ Comenzamos con el respectivo reconocimiento usando `nmap`.
 ``` bash
 nmap -p- -sS -sCV --min-rate 5000 -n -Pn 192.168.0.109 -oG scan
 ```
-![](_anexos_/_anexos_/Screenshot%20from%202023-12-15%2015-32-38%201.png)
+![](_anexos_/Screenshot%20from%202023-12-15%2015-32-38%201.png)
 
 - El puerto 53 esta abierto, puerto por default para el servicio DNS
 - En la info del puerto 80 vemos que existe un archivo `robots.txt`
