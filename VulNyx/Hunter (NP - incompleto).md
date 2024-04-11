@@ -10,7 +10,7 @@ nmap -p- -sS -sCV --min-rate 5000 -n -Pn 192.168.0.109 -oG scan
 - El puerto 53 esta abierto, puerto por default para el servicio DNS
 - En la info del puerto 80 vemos que existe un archivo `robots.txt`
 
-Nos vamos a concentrar en el puerto 53 y el servidor DNS. Intentamos ver la via para poder hacer una [DNS Zone Transfer Attack](DNS%20Attacks.md).
+Nos vamos a concentrar en el puerto 53 y el servidor DNS. Intentamos ver la via para poder hacer una [DNS Zone Transfer Attack](../../Pentest%20Concepts/DNS%20Attacks.md).
 ``` bash
 dig axfr @192.168.0.109 hunterzone.nyx
 ```

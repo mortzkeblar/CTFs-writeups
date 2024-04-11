@@ -57,7 +57,7 @@ Comprobado esto, procedemos a mandar una reverse shell para que nos pueda otorga
 
 ##### LECTURA OPCIONAL: POSIX y los problemas con la sintaxis stderr/stdout estandar
 
-Ver: [POSIX y los problemas con stdout - stdeer](POSIX%20y%20los%20problemas%20con%20stdout%20-%20stdeer.md)
+Ver: [POSIX y los problemas con stdout - stdeer](../../Pentest%20Concepts/POSIX%20y%20los%20problemas%20con%20stdout%20-%20stdeer.md)
 
 #### Reverse shell con netcat
 Entonces como tenemos ese problema con sh, podemos buscar otras formas de hacer la `reverse shell`, por ejemplo con `ncat`.
@@ -74,7 +74,7 @@ Ejecutamos y... Bingo!
 ### Tratamiento de la tty
 Lo primero que vamos a resolver es la cuestión de la tty. Ejecutamos los siguientes comandos en el ncat que estaba en escucha por el 4444.
 
-Ver: [Linux Full TTY (Interective shell)](Linux%20Full%20TTY%20(Interective%20shell).md)
+Ver: [Linux Full TTY (Interective shell)](../../Pentest%20Concepts/Linux%20Full%20TTY%20(Interective%20shell).md)
 ### Reconocimiento de la maquina victima
 Si ejecutamos `sudo -l` podemos ver que tenemos la app ubicada en `/usr/bin/links` que podemos ejecutar como `root` sin necesidad de presentar una contraseña. Probamos, en realidad no parece salir nada, pero si presionamos `Esc` podemos ver un panel de opciones.
 
