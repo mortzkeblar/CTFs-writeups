@@ -1,3 +1,8 @@
+---
+tags:
+  - CTF
+  - CyberSec
+---
 # NOTA: Esta maquina esta incompleta debido a problemas con la configuración del DNS, volver más tarde
 
 ## Reconocimiento

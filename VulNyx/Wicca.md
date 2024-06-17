@@ -1,3 +1,8 @@
+---
+tags:
+  - CTF
+  - CyberSec
+---
 ## Reconocimiento
 Comenzamos con el respectivo reconocimiento usando `nmap`.
 ``` bash

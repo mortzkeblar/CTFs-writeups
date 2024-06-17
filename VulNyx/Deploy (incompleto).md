@@ -1,3 +1,8 @@
+---
+tags:
+  - CTF
+  - CyberSec
+---
 ### Sources
 - https://www.youtube.com/watch?v=mjYXNAzfMOI
 - https://d4t4s3c.medium.com/vulnyx-deploy-fa1edf94b92a

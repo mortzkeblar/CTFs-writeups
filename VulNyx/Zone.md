@@ -1,3 +1,8 @@
+---
+tags:
+  - CTF
+  - CyberSec
+---
 # Reconocimiento y enumeración
 Con `arp-scan` podemos ver que el IP objetivo es `192.168.0.110`. Si hacemos el escaneo con nmap obtenemos.
 ![](_anexos_/Screenshot%20from%202023-12-26%2020-21-31.png)

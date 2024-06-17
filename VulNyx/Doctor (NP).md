@@ -1,3 +1,8 @@
+---
+tags:
+  - CTF
+  - CyberSec
+---
 ## Reconocimiento
 Procedimiento rutinario con nmap.
 ``` bash
